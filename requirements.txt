@@ -67,7 +67,7 @@ Pillow==5.4.1
 pip-tools==3.4.0
 prompt-toolkit==2.0.9
 psutil==5.5.1
-psycopg2==2.9.1
+psycopg2==2.8.6
 psycopg2-binary==2.8.2
 pycparser==2.20
 pycryptodome==3.8.2
