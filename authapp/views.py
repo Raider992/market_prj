@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.contrib import auth
 
 from authapp.forms import TravelUserRegisterForm, TravelUserLoginForm, TravelUserEditForm, TravelUserProfileEditForm
+from authapp.models import TravelUserProfile, TravelUser
 
 
 # Регистрация
@@ -15,6 +16,8 @@ def register(request):
 
         if register_form.is_valid():
             register_form.save()
+            travel_user = TravelUser.objects.get(username=request.POST['username'])
+            TravelUserProfile.objects.create(user=travel_user)
             return HttpResponseRedirect(reverse('auth:login'))
     else:
         register_form = TravelUserRegisterForm()

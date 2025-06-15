@@ -8,6 +8,13 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         users = TravelUser.objects.all()
+        user_profiles = TravelUserProfile.objects.all()
+        profile_id_list = []
+
+        for profile in user_profiles:
+            profile_id_list += profile.user_id
+
         for user in users:
-            users_profile = TravelUserProfile.objects.create(user=user)
-            users_profile.save()
+            if user.id not in profile_id_list:
+                users_profile = TravelUserProfile.objects.create(user=user)
+                users_profile.save()
