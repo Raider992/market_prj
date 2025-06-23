@@ -22,11 +22,13 @@ from django.urls import path, include, re_path
 import mainapp.views as mainapp
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('', mainapp.main, name='main'),
     path('list_of_accommodations/', include('mainapp.urls', namespace='acc')),
     path('auth/', include('authapp.urls', namespace='auth')),
-    re_path(r'^oauth/', include('social_django.urls', namespace='social')),]
+    re_path(r'^oauth/', include('social_django.urls', namespace='social')),
+    path('admin/', include('adminapp.urls', namespace='admin')),
+]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
