@@ -25,4 +25,4 @@ def accommodation(request, pk):
         'accommodation': get_object_or_404(Accommodation, pk=pk),
     }
 
-    return render(request, 'mainapp/accomodation_details.html', context)
+    return render(request, 'mainapp/accommodation_details.html', context)

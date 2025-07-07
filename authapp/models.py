@@ -7,6 +7,10 @@ class TravelUser(AbstractUser):
     avatar = models.ImageField(upload_to='users_avatars', blank=True)
     age = models.PositiveIntegerField(verbose_name='возраст', default=18)
 
+    AbstractUser._meta.get_field('first_name').verbose_name = 'Имя'
+    AbstractUser._meta.get_field('last_name').verbose_name = 'Фамилия'
+
+
 
 class TravelUserProfile(models.Model):
     MALE = 'M'
