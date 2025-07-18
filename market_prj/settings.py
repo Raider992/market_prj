@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'authapp',
     'adminapp',
     'basketapp',
+    'ordersapp',
 ]
 
 MIDDLEWARE = [
@@ -148,6 +149,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles"),
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -171,6 +174,8 @@ SOCIAL_AUTH_GITHUB_KEY = 'Ov23liboIMoeOQjXkIZo'
 SOCIAL_AUTH_GITHUB_SECRET = '29fd36e9efc461b6a7dc9b37aa4547f57350d76a'
 
 LOGIN_REDIRECT_URL = '/'
+
+LOGIN_URL = '/auth/login/'
 
 SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.social_details',
